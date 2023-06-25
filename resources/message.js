@@ -2,7 +2,7 @@
 const senderAction = require("../templates/senderAction");
 // const sendMessage = require("../templates/sendMessage");
 const sendGenericTemplate = require("../templates/sendGenericTemplate");
-const runCompletion = require("./chat");
+const runCompletion = require("../openai/completion");
 
 module.exports = function processMessage(event) {
     if (!event.message.is_echo) {
