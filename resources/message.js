@@ -15,13 +15,10 @@ module.exports = function processMessage(event) {
         if (message.text) {
             // now we will take the text received and send it to an food tracking API.
             let text = message.text;
-            // let request = require("request");
-
-            const completion = runCompletion(text);
 
             senderAction(senderID);
             // after the response is recieved we will send the details in a Generic template
-            sendGenericTemplate(senderID, completion.data.choices[0].text);
+            sendGenericTemplate(senderID, runCompletion(text));
 
             /*
             let options = {

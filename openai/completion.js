@@ -25,12 +25,14 @@ async function runCompletion(text) {
             prompt: text
         });
         // console.log(completion.data.choices[0].text);
-        // return completion.data.choices[0].text;
-        return completion;
+        console.log(completion);
+        return completion.data.choices[0].text;
+        // return completion;
     } catch (error) {
         if (error.response) {
-            console.log(error.response.status);
-            console.log(error.response.data);
+            // console.log(error.response.status);
+            // console.log(error.response.data);
+            console.log(error.response);
         } else {
             console.log(error.message);
         }
