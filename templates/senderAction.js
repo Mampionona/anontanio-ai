@@ -6,9 +6,9 @@ module.exports = function senderAction(recipientId) {
         method: "POST",
         json: {
             recipient: { id: recipientId },
-            "sender_action": "typing_on"
+            sender_action: "typing_on"
         }
-    }, function (error, response, body) {
+    }, (error, response, body) => {
         if (error) {
             console.log("Error sending message: " + response.error);
         }
