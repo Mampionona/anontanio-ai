@@ -25,7 +25,7 @@ async function runCompletion(text) {
             prompt: text
         });
         // console.log(completion.data.choices[0].text);
-        console.log(completion);
+        // console.log(completion);
         return completion.data.choices[0].text;
         // return completion;
     } catch (error) {
@@ -39,4 +39,4 @@ async function runCompletion(text) {
     }
 }
 
-modules.exports = runCompletion;
+module.exports = runCompletion;

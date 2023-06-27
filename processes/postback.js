@@ -45,8 +45,8 @@ module.exports = function processPostback(event) {
                 sendMessage(senderID, `Error getting user name: ${error}`);
             } else {
                 const { first_name } = JSON.parse(body);
-                const greeting = runCompletion(`Bonjour! Je m'appelle ${first_name}`);
-                sendMessage(senderID, { text: greeting });
+                const text = `Bonjour! Je m'appelle ${first_name}. Comment allez-vous?`;
+                runCompletion(text).then((greeting) => sendMessage(senderID, { text: greeting }));
             }
         });
     }
