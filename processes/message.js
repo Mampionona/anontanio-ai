@@ -11,10 +11,14 @@ module.exports = function processMessage(event) {
         console.log("Message is: " + JSON.stringify(message));
 
         if (message.text) {
-            // now we will take the text received and send it to the OpenAI API.
-            senderAction(senderID);
-            // after the response is recieved we will send the details in a Generic template
-            runCompletion(message.text).then((completion) => sendGenericTemplate(senderID, completion));
+            const text = message.text;
+
+            if (!text.startsWith("NO_AI")) {
+                // now we will take the text received and send it to the OpenAI API.
+                senderAction(senderID);
+                // after the response is recieved we will send the details in a Generic template
+                runCompletion(text).then((completion) => sendGenericTemplate(senderID, completion));
+            }
         }
     }
 }
